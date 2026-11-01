@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
 
     async function requestAnalysis(endpoint, payload = {}) {
-        const API_BASE_URL = "http://localhost:5050";
+        const API_BASE_URL = window.location.origin;
 
         const apiUrl = new URL(endpoint, API_BASE_URL);
 
