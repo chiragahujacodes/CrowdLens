@@ -1,0 +1,760 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#241078">
+
+    <title>CrowdLens — Audience Intelligence</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <a class="brand" href="#overview">
+            <span class="brand-mark">✳</span>
+            <span class="brand-name">Crowd<span>Lens</span></span>
+        </a>
+
+        <div class="workspace-label">WORKSPACE</div>
+
+        <nav class="nav-list">
+
+            <a class="nav-link active" href="#overview" data-section="overview">
+                <span class="nav-icon">⌂</span>
+                <span>Overview</span>
+            </a>
+
+            <a class="nav-link" href="#audience" data-section="audience">
+                <span class="nav-icon">◉</span>
+                <span>Audience Insights</span>
+            </a>
+
+            <a class="nav-link" href="#voice" data-section="voice">
+                <span class="nav-icon">▤</span>
+                <span>Audience Voice</span>
+            </a>
+
+            <a class="nav-link" href="#opportunities" data-section="opportunities">
+                <span class="nav-icon">↗</span>
+                <span>Growth Opportunities</span>
+            </a>
+
+            <a class="nav-link" href="#comments" data-section="comments">
+                <span class="nav-icon">☷</span>
+                <span>Comment Explorer</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-note">
+                <span class="note-spark">✦</span>
+                <strong>Listen closer.</strong>
+                <p>Turn public conversations into clearer decisions.</p>
+            </div>
+
+            <div class="sidebar-footer">
+                <span class="status-dot"></span>
+                Intelligence workspace
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-area">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">
+                ☰
+            </button>
+
+            <div class="breadcrumb">
+                <span>Workspace</span>
+                <b>/</b>
+                <strong id="breadcrumbCurrent">Overview</strong>
+            </div>
+
+            <div class="topbar-right">
+
+                <span class="topbar-pill">
+                    <span class="status-dot"></span>
+                    Ready to analyse
+                </span>
+
+                <div class="avatar">CL</div>
+
+            </div>
+
+        </header>
+
+
+        <div class="content-wrap">
+
+            <!-- COLOURFUL HERO -->
+            <section class="hero-section" id="overview">
+
+                <div class="hero-copy">
+
+                    <div class="eyebrow">
+                        <span class="eyebrow-line"></span>
+                        AUDIENCE INTELLIGENCE PLATFORM
+                    </div>
+
+                    <h1>
+                        Listen to the crowd.
+                        <br>
+                        <span>Discover the signal.</span>
+                    </h1>
+
+                    <p class="hero-subtitle">
+                        Understand what people really think, uncover
+                        recurring patterns and turn public conversations
+                        into meaningful opportunities.
+                    </p>
+
+                    <div class="hero-points">
+                        <span>✦ Evidence-backed insights</span>
+                        <span>✦ AI-powered analysis</span>
+                    </div>
+
+                </div>
+
+                <div class="hero-orbit">
+
+                    <div class="orbit orbit-one"></div>
+                    <div class="orbit orbit-two"></div>
+
+                    <div class="orbit-core">
+                        <span>✳</span>
+                    </div>
+
+                    <span class="orbit-dot dot-a"></span>
+                    <span class="orbit-dot dot-b"></span>
+                    <span class="orbit-dot dot-c"></span>
+
+                    <div class="orbit-label orbit-label-one">
+                        <span>◉</span> Audience
+                    </div>
+
+                    <div class="orbit-label orbit-label-two">
+                        <span>✦</span> Insights
+                    </div>
+
+                </div>
+
+                <div class="hero-decoration hero-decoration-one"></div>
+                <div class="hero-decoration hero-decoration-two"></div>
+
+            </section>
+
+
+            <!-- URL ANALYSER -->
+            <section class="analyser-card">
+
+                <div class="analyser-heading">
+
+                    <div>
+                        <div class="section-kicker">START EXPLORING</div>
+                        <h2>What would you like to understand?</h2>
+                        <p>Enter a public URL and let CrowdLens uncover the conversation.</p>
+                    </div>
+
+                    <span class="sparkle-badge">
+                        ✦ AI-powered analysis
+                    </span>
+
+                </div>
+
+
+                <form id="analysisForm" class="url-form">
+
+                    <div class="url-input-wrap">
+
+                        <span class="input-link-icon">↗</span>
+
+                        <input
+                            id="urlInput"
+                            type="url"
+                            placeholder="Paste a public URL to get started..."
+                            autocomplete="url"
+                            required
+                        >
+
+                    </div>
+
+                    <button class="primary-btn" id="analyseBtn" type="submit">
+                        <span>Generate insights</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+
+                </form>
+
+
+                <div class="analyser-foot">
+
+                    <span>
+                        <i class="tiny-check">✓</i>
+                        Public conversation analysis
+                    </span>
+
+                    <button type="button" class="text-btn" id="demoBtn">
+                        Explore a sample report ↗
+                    </button>
+
+                </div>
+
+
+                <div class="progress-area hidden" id="progressArea">
+
+                    <div class="progress-track">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                    <p id="progressText">Preparing your analysis...</p>
+
+                </div>
+
+
+                <div class="error-box hidden" id="errorBox"></div>
+
+            </section>
+
+
+            <!-- WELCOME / EMPTY STATE -->
+            <section class="welcome-grid" id="welcomeGrid">
+
+                <article class="welcome-card welcome-card-large">
+
+                    <div class="welcome-icon lavender-icon">⌁</div>
+
+                    <div class="welcome-card-content">
+                        <span class="welcome-label">01 / DISCOVER</span>
+                        <h3>Find the signal in the noise</h3>
+                        <p>
+                            Discover recurring themes, sentiment and the
+                            questions that matter most.
+                        </p>
+                    </div>
+
+                    <span class="welcome-decoration">01</span>
+
+                </article>
+
+
+                <article class="welcome-card">
+
+                    <div class="welcome-icon peach-icon">✧</div>
+
+                    <div class="welcome-card-content">
+                        <span class="welcome-label">02 / UNDERSTAND</span>
+                        <h3>Hear the audience</h3>
+                        <p>
+                            Bring real comments, opinions and feedback
+                            into focus.
+                        </p>
+                    </div>
+
+                </article>
+
+
+                <article class="welcome-card">
+
+                    <div class="welcome-icon mint-icon">↗</div>
+
+                    <div class="welcome-card-content">
+                        <span class="welcome-label">03 / ACT</span>
+                        <h3>See what comes next</h3>
+                        <p>
+                            Turn audience feedback into practical
+                            opportunities for growth.
+                        </p>
+                    </div>
+
+                </article>
+
+            </section>
+
+
+
+            <!-- GENERATED REPORT -->
+            <section class="report hidden" id="report">
+
+
+                <!-- REPORT HEADER -->
+                <div class="report-heading">
+
+                    <div>
+                        <div class="section-kicker">YOUR INTELLIGENCE REPORT</div>
+                        <h2 id="reportTitle">Audience intelligence</h2>
+                        <p id="reportUrl" class="report-url"></p>
+                    </div>
+
+                    <div class="report-actions">
+
+                        <span class="source-chip" id="sourceChip">
+                            Analysis report
+                        </span>
+
+                        <button class="secondary-btn" id="pdfBtn">
+                            ↓ Export PDF
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- SUMMARY -->
+                <section class="insight-banner">
+
+                    <div class="banner-symbol">✦</div>
+
+                    <div>
+                        <div class="banner-label">THE BIG PICTURE</div>
+                        <p id="summaryText"></p>
+                    </div>
+
+                </section>
+
+
+
+                <!-- AUDIENCE INSIGHTS -->
+                <section class="report-section" id="audience">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <div class="section-kicker">01 / AUDIENCE PULSE</div>
+                            <h3>How the audience feels</h3>
+                            <p>
+                                A high-level read of the reactions in this
+                                conversation.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="overview-cards">
+
+
+                        <!-- SENTIMENT -->
+                        <article class="metric-card sentiment-card">
+
+                            <div class="metric-top">
+                                <span>Overall sentiment</span>
+                                <span class="metric-icon">◉</span>
+                            </div>
+
+                            <div class="sentiment-result" id="sentimentLabel">
+                                —
+                            </div>
+
+                            <p id="sentimentCaption">
+                                Based on available feedback
+                            </p>
+
+                        </article>
+
+
+
+                        <!-- DONUT CHART -->
+                        <article class="chart-card sentiment-chart-card">
+
+                            <div class="card-title-row">
+
+                                <div>
+                                    <h4>Sentiment distribution</h4>
+                                    <p>Share of classified feedback</p>
+                                </div>
+
+                            </div>
+
+                            <div class="donut-wrap">
+
+                                <canvas id="sentimentChart"></canvas>
+
+                                <div class="donut-center">
+                                    <strong id="sentimentCenter">—</strong>
+                                    <span>sentiment</span>
+                                </div>
+
+                            </div>
+
+                            <div
+                                class="sentiment-legend"
+                                id="sentimentLegend">
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- KEY TAKEAWAY -->
+                        <article class="metric-card takeaway-card">
+
+                            <div class="metric-top">
+                                <span>Key takeaway</span>
+                                <span class="metric-icon">✧</span>
+                            </div>
+
+                            <p id="keyTakeaway"></p>
+
+                            <div class="takeaway-rule"></div>
+
+                            <span class="small-muted">
+                                What matters most right now
+                            </span>
+
+                        </article>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- CONVERSATION THEMES -->
+                <section class="report-section" id="themesSection">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <div class="section-kicker">
+                                02 / CONVERSATION LANDSCAPE
+                            </div>
+
+                            <h3>What people are talking about</h3>
+
+                            <p>
+                                Recurring topics and the themes shaping
+                                the conversation.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="two-column-grid">
+
+
+                        <!-- THEMES CHART -->
+                        <article class="chart-card theme-chart-card">
+
+                            <div class="card-title-row">
+
+                                <div>
+                                    <h4>Recurring themes</h4>
+                                    <p>
+                                        Relative prominence in the analysed
+                                        feedback
+                                    </p>
+                                </div>
+
+                                <span class="mini-tag">TOPICS</span>
+
+                            </div>
+
+                            <div class="theme-chart-wrap">
+                                <canvas id="themesChart"></canvas>
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- THEME BREAKDOWN -->
+                        <article class="theme-list-card">
+
+                            <div class="card-title-row">
+
+                                <div>
+                                    <h4>Theme breakdown</h4>
+                                    <p>Explore conversation clusters</p>
+                                </div>
+
+                            </div>
+
+                            <div id="themeList" class="theme-list"></div>
+
+                        </article>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- AUDIENCE VOICE -->
+                <section class="report-section" id="voice">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <div class="section-kicker">
+                                03 / AUDIENCE VOICE
+                            </div>
+
+                            <h3>What your audience needs</h3>
+
+                            <p>
+                                Requests, friction points and the feedback
+                                behind the patterns.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="voice-grid">
+
+
+                        <!-- DEMANDS -->
+                        <article class="list-card demand-card">
+
+                            <div class="list-card-heading">
+
+                                <span class="list-icon demand-icon">＋</span>
+
+                                <div>
+                                    <h4>What people want</h4>
+                                    <p>Requests and expectations</p>
+                                </div>
+
+                            </div>
+
+                            <div id="demandsList" class="insight-list"></div>
+
+                        </article>
+
+
+
+                        <!-- PAIN POINTS -->
+                        <article class="list-card pain-card">
+
+                            <div class="list-card-heading">
+
+                                <span class="list-icon pain-icon">!</span>
+
+                                <div>
+                                    <h4>Where they struggle</h4>
+                                    <p>Frictions and unanswered questions</p>
+                                </div>
+
+                            </div>
+
+                            <div id="painList" class="insight-list"></div>
+
+                        </article>
+
+
+                    </div>
+
+
+
+                    <!-- EVIDENCE SPOTLIGHT -->
+                    <article class="evidence-section">
+
+                        <div class="evidence-heading">
+
+                            <div>
+                                <div class="section-kicker">
+                                    EVIDENCE SPOTLIGHT
+                                </div>
+
+                                <h4>Insights, grounded in real voices</h4>
+
+                                <p>
+                                    Examples of feedback supporting
+                                    the analysis.
+                                </p>
+                            </div>
+
+                            <span class="evidence-mark">“ ”</span>
+
+                        </div>
+
+                        <div id="evidenceList" class="evidence-grid"></div>
+
+                    </article>
+
+                </section>
+
+
+
+                <!-- GROWTH OPPORTUNITIES -->
+                <section class="report-section" id="opportunities">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <div class="section-kicker">
+                                04 / WHAT'S NEXT
+                            </div>
+
+                            <h3>Growth opportunities</h3>
+
+                            <p>
+                                Practical ways to respond to feedback
+                                and improve.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="opportunity-layout">
+
+
+                        <!-- OPPORTUNITIES -->
+                        <div class="opportunity-main">
+
+                            <div class="opportunity-header">
+
+                                <div>
+                                    <h4>Ideas worth acting on</h4>
+                                    <p>
+                                        Recommendations shaped by
+                                        audience signals
+                                    </p>
+                                </div>
+
+                                <span class="opportunity-star">✦</span>
+
+                            </div>
+
+                            <div
+                                id="opportunitiesList"
+                                class="opportunities-list">
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- ACTION PLAN -->
+                        <aside class="recommendations-card">
+
+                            <div class="recommendation-icon">↗</div>
+
+                            <div class="section-kicker">ACTION PLAN</div>
+
+                            <h4>Recommended next steps</h4>
+
+                            <div
+                                id="recommendationsList"
+                                class="recommendations-list">
+                            </div>
+
+                        </aside>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- COMMENT EXPLORER -->
+                <section class="report-section" id="comments">
+
+                    <div class="section-heading">
+
+                        <div>
+                            <div class="section-kicker">
+                                05 / EXPLORE THE SOURCE
+                            </div>
+
+                            <h3>Comment explorer</h3>
+
+                            <p>
+                                Search and filter the public feedback
+                                used in this report.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="comment-tools">
+
+                        <div class="search-box">
+                            <span>⌕</span>
+
+                            <input
+                                id="commentSearch"
+                                type="search"
+                                placeholder="Search comments or authors..."
+                            >
+                        </div>
+
+
+                        <select id="sentimentFilter">
+                            <option value="all">All sentiments</option>
+                            <option value="positive">Positive</option>
+                            <option value="negative">Negative</option>
+                            <option value="neutral">Neutral</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="comments-list" id="commentsList"></div>
+
+
+                    <div class="empty-state hidden" id="commentsEmpty">
+                        No comments match these filters.
+                    </div>
+
+                </section>
+
+
+
+                <!-- FOOTER -->
+                <footer class="report-footer">
+
+                    <span>✦ CrowdLens</span>
+
+                    <span>
+                        Insights are based on available public feedback
+                        and should be interpreted in context.
+                    </span>
+
+                </footer>
+
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
